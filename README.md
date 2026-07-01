@@ -16,6 +16,9 @@
 
 → `~/.claude/skills/qt-exam-insta-analysis/` 에 설치됩니다. 자세한 내용은 [INSTALL.md](INSTALL.md).
 
+> 🐣 **Claude Code가 처음이세요?** 설치부터 사용까지 아주 상세한 왕초보용 안내는
+> **[초보자 가이드](초보자-가이드.md)** 를 보세요.
+
 ## 준비물
 Python 3, 그리고 렌더링용 playwright(chromium)·Pillow·numpy (첫 실행 시 자동 설치), 한글 폰트 Noto Sans CJK KR.
 
