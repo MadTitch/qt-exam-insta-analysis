@@ -1,0 +1,38 @@
+/* 테마 C — 볼드 매거진
+ * 메인색 솔리드 배경(격자 없음), 알약형 탭, 큰 제목, 강한 그림자의 흰 카드가 떠 있는 구도.
+ * 본문 카드는 흰 배경+진한 글자 유지(가독성), 배경/탭/워터마크로 강한 인상.
+ */
+.canvas {
+  background-color: var(--brand);
+  background-image: none;
+}
+
+/* 알약형 탭 (흰 배경 + 메인색 글자) */
+.tab {
+  top: 72px; left: 76px;
+  background: #fff;
+  color: var(--brand-dark);
+  border: none;
+  border-radius: 999px;
+  padding: 16px 36px;
+  font-size: 32px;
+}
+
+/* 떠 있는 흰 카드 */
+.card {
+  top: 150px; bottom: 150px;
+  border: none;
+  border-radius: 30px;
+  box-shadow: 0 26px 72px rgba(0,0,0,0.28);
+}
+.card h1 { font-size: 70px; }
+
+/* 책더미는 흰색 라인으로 */
+.books rect { fill: rgba(255,255,255,0.18); stroke: #fff; }
+.books line { stroke: #fff; }
+.watermark { color: #fff; opacity: 0.95; }
+
+/* cover / outro : 솔리드 배경 위 큰 흰 제목 (base가 흰색이라 유지), 부제 더 밝게 */
+.cover .c-title, .outro .o-slogan, .outro .o-academy { color: #fff; }
+.cover .c-sub, .outro .o-tags { color: rgba(255,255,255,0.92); }
+.cover .c-title { font-size: 104px; }

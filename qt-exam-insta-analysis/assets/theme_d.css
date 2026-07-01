@@ -1,0 +1,57 @@
+/* 테마 D — 다크 네온
+ * 어두운 차콜 배경 + 옅은 격자, 메인색을 네온 액센트로. 텍스트는 밝게.
+ * 크롭(시험지 스캔)은 흰 배경 유지.
+ */
+.canvas {
+  background-color: #191921;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 54px 54px;
+}
+.tab {
+  background: var(--brand); color: #fff;
+  border: none; border-radius: 14px 14px 0 0;
+}
+.card {
+  background: #23232d;
+  border: 2px solid rgba(255,255,255,0.12);
+  border-radius: 24px;
+  color: #eaeaf0;
+  box-shadow: 0 22px 64px rgba(0,0,0,0.55);
+}
+.card h1 { color: var(--brand); text-shadow: 0 0 22px var(--brand); }
+.card .sub { color: #b9b9c6; }
+.tab { box-shadow: 0 0 22px var(--brand); }
+
+.chip { background: rgba(255,255,255,0.06); border: 2px solid var(--brand); color: #fff; }
+.item { border-left-color: var(--brand); }
+.item .it-title { color: var(--brand); }
+.item .it-body { color: #d5d5df; }
+
+table.score th, table.score td { border-color: rgba(255,255,255,0.15); }
+table.score thead th { background: var(--brand); color: #fff; }
+table.score tbody tr:nth-child(even) td { background: rgba(255,255,255,0.04); }
+table.score tbody tr:nth-child(odd) td { background: transparent; }
+table.score td { color: #e8e8ef; }
+table.score .score { color: var(--brand); }
+table.score tfoot td { background: rgba(255,255,255,0.08); color: #fff; }
+
+.dd-crop { background: #fff; border-color: rgba(255,255,255,0.22); }
+.dd-body { color: #d5d5df; }
+
+.tf-row { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.15); }
+.tf-before { color: #cdcdd6; }
+.tf-before .lbl { background: #44444f; color: #d8d8e0; }
+.tf-after { color: #fff; }
+.tf-after .lbl { background: var(--brand); color: #fff; }
+.tf-after .chg { background: rgba(255,255,255,0.16); color: var(--brand-tint); }
+.tf-point { color: var(--brand-tint); }
+
+.watermark { color: #fff; opacity: 0.85; }
+.books rect { fill: rgba(255,255,255,0.10); stroke: #fff; }
+.books line { stroke: #fff; }
+
+.cover .c-title, .outro .o-slogan, .outro .o-academy { color: #fff; }
+.cover .c-sub, .outro .o-tags { color: var(--brand); }
+.cover .c-teacher { color: #fff; background: rgba(255,255,255,0.08); border-color: var(--brand); }

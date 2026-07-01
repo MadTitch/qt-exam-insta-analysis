@@ -1,0 +1,47 @@
+/* 테마 H — 네온사인
+ * 거의 검은 배경에 메인색 네온 글로우(외곽선·글자). 어둡고 강렬.
+ */
+.canvas { background-color: #0d0d12; background-image: none; }
+.tab {
+  background: transparent; color: var(--brand);
+  border: 2px solid var(--brand); border-radius: 14px 14px 0 0;
+  box-shadow: 0 0 18px var(--brand); text-shadow: 0 0 10px var(--brand);
+}
+.card {
+  background: #14141b; color: #ededf2;
+  border: 2px solid var(--brand); border-radius: 24px;
+  box-shadow: 0 0 34px rgba(0,0,0,0.6);
+}
+.card h1 { color: var(--brand); text-shadow: 0 0 20px var(--brand); }
+.card .sub { color: #c3c3cf; }
+
+.chip { background: transparent; border: 2px solid var(--brand); color: var(--brand); box-shadow: 0 0 12px rgba(0,0,0,0.4); }
+.item { border-left-color: var(--brand); }
+.item .it-title { color: var(--brand); text-shadow: 0 0 12px var(--brand); }
+.item .it-body { color: #d3d3dd; }
+
+table.score th, table.score td { border-color: rgba(255,255,255,0.18); }
+table.score thead th { background: transparent; color: var(--brand); border-color: var(--brand); text-shadow: 0 0 10px var(--brand); }
+table.score tbody tr:nth-child(even) td { background: rgba(255,255,255,0.04); }
+table.score td { color: #e6e6ee; }
+table.score .score { color: var(--brand); }
+table.score tfoot td { background: rgba(255,255,255,0.06); color: #fff; }
+
+.dd-crop { background: #fff; border-color: var(--brand); }
+.dd-body { color: #d3d3dd; }
+.tf-row { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.16); }
+.tf-before { color: #c2c2cc; } .tf-before .lbl { background: #3d3d48; color: #d2d2da; }
+.tf-after { color: #fff; } .tf-after .lbl { background: var(--brand); color: #fff; }
+.tf-after .chg { background: rgba(255,255,255,0.14); color: var(--brand-tint); }
+.tf-point { color: var(--brand); text-shadow: 0 0 10px var(--brand); }
+
+.watermark { color: var(--brand); text-shadow: 0 0 12px var(--brand); }
+.books rect { fill: none; stroke: var(--brand); }
+.books line { stroke: var(--brand); }
+.pageno { color: rgba(255,255,255,0.7); }
+
+.cover .c-title { color: var(--brand); text-shadow: 0 0 28px var(--brand); }
+.outro .o-slogan { color: var(--brand); text-shadow: 0 0 24px var(--brand); }
+.outro .o-academy { color: #fff; }
+.cover .c-sub, .outro .o-tags { color: #c3c3cf; }
+.cover .c-teacher { color: var(--brand); background: transparent; border-color: var(--brand); box-shadow: 0 0 16px var(--brand); }

@@ -1,0 +1,57 @@
+/* 테마 B — 미니멀 라이트
+ * 밝은 배경, 격자 없음, 폴더탭 박스 없음(라벨만), 테두리 없는 카드 + 부드러운 그림자,
+ * 제목 아래 굵은 짧은 강조 바, 책더미 없음. 텍스트는 진한 색(라이트 배경 위).
+ */
+.canvas {
+  background-color: var(--brand-tint2);
+  background-image: none;
+}
+
+/* 폴더탭 → 박스 없는 작은 섹션 라벨 */
+.tab {
+  top: 70px; left: 76px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  font-size: 30px;
+  letter-spacing: 1px;
+  color: var(--brand);
+}
+
+/* 테두리 없는 흰 카드 + 그림자 */
+.card {
+  top: 132px;
+  border: none;
+  border-radius: 34px;
+  box-shadow: 0 20px 64px rgba(0,0,0,0.10);
+  padding: 60px 60px 64px;
+}
+.card h1::after {
+  content: "";
+  display: block;
+  width: 132px; height: 12px;
+  background: var(--brand);
+  border-radius: 6px;
+  margin-top: 16px;
+}
+
+/* 장식 최소화 */
+.books { display: none; }
+.watermark { color: var(--brand); opacity: 0.78; }
+.pageno { color: rgba(0,0,0,0.42); }
+
+/* 컴포넌트 톤 정리 */
+.chip { background: #fff; border: 2px solid var(--brand-tint); }
+.item { border-left-color: var(--brand); }
+table.score th, table.score td { border-color: var(--brand-tint); }
+.dd-crop { border-color: var(--brand-tint); }
+
+/* cover / outro : 라이트 배경이므로 텍스트를 진하게 */
+.cover .c-title, .outro .o-slogan, .outro .o-academy { color: var(--brand-dark); }
+.cover .c-sub, .outro .o-tags { color: var(--brand); }
+.cover .c-teacher {
+  color: var(--brand-dark);
+  background: transparent;
+  border-color: var(--brand);
+}

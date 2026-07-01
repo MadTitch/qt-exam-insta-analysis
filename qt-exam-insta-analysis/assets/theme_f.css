@@ -1,0 +1,26 @@
+/* 테마 F — 그라디언트
+ * 메인색 대각선 그라디언트 배경 + 떠 있는 흰 카드. 밝고 현대적.
+ */
+.canvas {
+  background-color: var(--brand);
+  background-image: linear-gradient(135deg, var(--brand), var(--brand-dark));
+  background-size: 100% 100%;
+}
+.tab {
+  background: rgba(255,255,255,0.92); color: var(--brand-dark);
+  border: none; border-radius: 14px 14px 0 0;
+}
+.card {
+  background: rgba(255,255,255,0.97); border: none;
+  border-radius: 28px;
+  box-shadow: 0 26px 72px rgba(0,0,0,0.30);
+}
+.card h1 { color: var(--brand-dark); }
+
+.watermark { color: #fff; opacity: 0.95; }
+.books rect { fill: rgba(255,255,255,0.20); stroke: #fff; }
+.books line { stroke: #fff; }
+
+.cover .c-title, .outro .o-slogan, .outro .o-academy { color: #fff; }
+.cover .c-sub, .outro .o-tags { color: rgba(255,255,255,0.92); }
+.cover .c-teacher { color: #fff; background: rgba(255,255,255,0.15); border-color: #fff; }

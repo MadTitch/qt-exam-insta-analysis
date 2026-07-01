@@ -1,0 +1,39 @@
+/* 테마 G — 뉴스페이퍼
+ * 크림색 신문지, 검정 잉크 + 메인색 스팟, 각진 프레임·이중 밑줄·대문자 라벨.
+ */
+.canvas { background-color: #f4f1ea; background-image: none; }
+.tab {
+  background: #1a1a1a; color: #f4f1ea;
+  border: none; border-radius: 0; letter-spacing: 2px;
+}
+.card {
+  background: #fffdf8; border: 3px solid #1a1a1a; border-radius: 0;
+  box-shadow: none;
+}
+.card h1 {
+  color: #1a1a1a;
+  border-bottom: 6px double #1a1a1a; padding-bottom: 16px;
+}
+.card .sub { color: var(--brand-dark); }
+
+.item { border-left: none; border-top: 3px solid #1a1a1a; padding-left: 0; padding-top: 14px; }
+.item .it-title { color: #1a1a1a; }
+.item .it-body { color: #2a2a2a; }
+.chip { background: transparent; border: 2px solid #1a1a1a; color: #1a1a1a; border-radius: 0; }
+
+table.score th, table.score td { border-color: #1a1a1a; }
+table.score thead th { background: #1a1a1a; color: #f4f1ea; }
+table.score tbody tr:nth-child(even) td { background: #f1ede3; }
+table.score .score { color: var(--brand-dark); }
+table.score tfoot td { background: #eae4d6; color: #1a1a1a; }
+
+.dd-crop { border-color: #1a1a1a; }
+.tf-row { border-color: #1a1a1a; background: #f1ede3; border-radius: 0; }
+
+.books { display: none; }
+.watermark { color: #1a1a1a; letter-spacing: 3px; }
+.pageno { color: rgba(0,0,0,0.5); }
+
+.cover .c-title, .outro .o-slogan, .outro .o-academy { color: #1a1a1a; }
+.cover .c-sub, .outro .o-tags { color: var(--brand-dark); }
+.cover .c-teacher { color: #1a1a1a; background: transparent; border-color: #1a1a1a; border-radius: 0; }

@@ -1,0 +1,218 @@
+/* qt-exam-insta-analysis — 카드 공용 스타일
+ * 1080×1080 캔버스. 색은 --brand(메인색)에서 파생한다(하드코딩 금지).
+ * build_cards.py 가 :root 에 --brand 계열 변수를 주입한다.
+ */
+
+:root {
+  /* build_cards.py 가 주입(예시 기본값) */
+  --brand:        #3B4FD8;
+  --brand-dark:   #1a2bbf;   /* 제목/강조 (메인색 어둡게) */
+  --brand-ink:    #0f1850;   /* 가장 진한 텍스트 */
+  --brand-tint:   #e8ebfb;   /* 카드 헤더/행 음영 (메인색 옅게) */
+  --brand-tint2:  #f5f6fe;   /* 더 옅은 톤 */
+  --paper:        #ffffff;
+  --line:         #111111;   /* 카드 외곽선(굵은 검정) */
+  --grid-line:    rgba(255,255,255,0.10);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: 1080px;
+  height: 1080px;
+  font-family: "Noto Sans CJK KR", "Noto Sans KR", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: var(--brand-ink);
+  /* 한글은 어절 단위로만 줄바꿈(단어 중간에서 끊기지 않게). 본문 가독성 핵심. */
+  word-break: keep-all;
+  line-break: strict;
+}
+
+/* ── 캔버스 + blueprint grid 배경 ───────────────────────── */
+.canvas {
+  position: relative;
+  width: 1080px;
+  height: 1080px;
+  overflow: hidden;
+  background-color: var(--brand);
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 54px 54px;
+}
+
+/* ── 폴더 탭 ───────────────────────────────────────────── */
+.tab {
+  position: absolute;
+  top: 64px;
+  left: 72px;
+  background: var(--paper);
+  border: 5px solid var(--line);
+  border-bottom: none;
+  border-radius: 18px 18px 0 0;
+  padding: 18px 34px;
+  font-size: 34px;
+  font-weight: 900;
+  color: var(--brand-dark);
+  z-index: 3;
+}
+
+/* ── 흰 본문 카드 ──────────────────────────────────────── */
+.card {
+  position: absolute;
+  top: 132px;
+  left: 72px;
+  right: 72px;
+  bottom: 132px;
+  background: var(--paper);
+  border: 6px solid var(--line);
+  border-radius: 28px;
+  padding: 56px 56px 64px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.card h1 {
+  font-size: 60px;
+  font-weight: 900;
+  color: var(--brand-dark);
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+.card .sub {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--brand);
+  margin-bottom: 28px;
+}
+
+/* ── 워터마크(학원명) + 책더미 ─────────────────────────── */
+.watermark {
+  position: absolute;
+  bottom: 44px;
+  left: 0; right: 0;
+  text-align: center;
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--paper);
+  letter-spacing: 1px;
+  z-index: 4;
+}
+.books {
+  position: absolute;
+  right: 40px;
+  bottom: 24px;
+  width: 150px;
+  height: 110px;
+  z-index: 4;
+}
+
+/* 페이지 번호 (1 / N) — 하단 좌측. 밝은 배경 테마는 색을 어둡게 override */
+.pageno {
+  position: absolute;
+  bottom: 48px; left: 60px;
+  font-size: 24px; font-weight: 800;
+  letter-spacing: 1px;
+  color: rgba(255,255,255,0.80);
+  z-index: 5;
+}
+
+/* ── scope: 토픽 칩 목록 ───────────────────────────────── */
+.chips { display: flex; flex-wrap: wrap; gap: 18px; align-content: flex-start; }
+.chip {
+  background: var(--brand-tint);
+  border: 3px solid var(--brand-dark);
+  border-radius: 999px;
+  padding: 16px 28px;
+  font-size: 33px;
+  font-weight: 800;
+  color: var(--brand-ink);
+}
+
+/* ── score_table ───────────────────────────────────────── */
+table.score { width: 100%; border-collapse: collapse; font-size: 33px; }
+table.score th, table.score td {
+  border: 3px solid var(--line);
+  padding: 20px 22px;
+  text-align: left;
+}
+table.score thead th {
+  background: var(--brand-dark);
+  color: var(--paper);
+  font-weight: 900;
+}
+/* header text stays white even on .num/.score columns */
+table.score thead th.num, table.score thead th.score { color: var(--paper); }
+table.score tbody tr:nth-child(even) td { background: var(--brand-tint2); }
+table.score tbody tr:nth-child(odd)  td { background: var(--paper); }
+table.score .num   { text-align: right; font-variant-numeric: tabular-nums; }
+table.score .score { text-align: right; font-weight: 900; color: var(--brand-dark); font-variant-numeric: tabular-nums; }
+table.score tfoot td {
+  background: var(--brand-tint);
+  font-weight: 900;
+  color: var(--brand-ink);
+}
+
+/* ── feature_list / strategy: 항목 블록 ────────────────── */
+.items { display: flex; flex-direction: column; gap: 26px; overflow: hidden; }
+.item { border-left: 10px solid var(--brand); padding-left: 22px; }
+.item .it-title { font-size: 38px; font-weight: 900; color: var(--brand-dark); margin-bottom: 6px; }
+.item .it-body  { font-size: 30px; font-weight: 500; line-height: 1.4; color: #1a1a1a; }
+
+/* ── deep_dive: 크롭 이미지 + 설명 ─────────────────────── */
+.dd-crop {
+  flex: 1 1 auto;
+  min-height: 0;
+  background: var(--brand-tint2);
+  border: 4px solid var(--line);
+  border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+  margin-bottom: 26px;
+}
+.dd-crop img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.dd-body { font-size: 31px; font-weight: 500; line-height: 1.45; color: #1a1a1a; }
+/* 심층분석 제목은 길어서(문항·배점 포함) 약간 작게 + 균형 줄바꿈 */
+.card h1.dd-title { font-size: 48px; line-height: 1.14; text-wrap: balance; margin-bottom: 20px; }
+
+/* ── transform: 교과서 원문 → 시험 변형 (before→after) ──── */
+.transform { display: flex; flex-direction: column; gap: 20px; overflow: hidden; }
+.tf-row {
+  background: var(--brand-tint2);
+  border: 3px solid var(--line);
+  border-radius: 16px;
+  padding: 18px 24px;
+}
+.tf-line { font-size: 28px; line-height: 1.38; }
+.tf-line .lbl {
+  display: inline-block;
+  font-size: 20px; font-weight: 900;
+  border-radius: 8px; padding: 2px 12px; margin-right: 10px;
+  vertical-align: middle;
+}
+.tf-before { color: #888; }
+.tf-before .lbl { background: #e2e2e2; color: #666; }
+.tf-after { color: var(--brand-ink); font-weight: 600; margin-top: 7px; }
+.tf-after .lbl { background: var(--brand); color: #fff; }
+.tf-before .chg { color: #c0392b; text-decoration: line-through; font-weight: 800; }
+.tf-after .chg {
+  background: var(--brand-tint); color: var(--brand-dark);
+  font-weight: 900; border-radius: 6px; padding: 0 7px; text-decoration: underline;
+}
+.tf-point { font-size: 23px; font-weight: 800; color: var(--brand-dark); margin-top: 10px; }
+
+/* ── cover / outro ─────────────────────────────────────── */
+.cover, .outro {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; padding: 90px; z-index: 2;
+}
+.cover .c-title { font-size: 96px; font-weight: 900; color: var(--paper); line-height: 1.1; }
+.cover .c-sub   { font-size: 42px; font-weight: 700; color: var(--brand-tint); margin-top: 24px; }
+.cover .c-teacher { font-size: 34px; font-weight: 800; color: var(--paper); margin-top: 48px;
+  background: rgba(255,255,255,0.16); border: 3px solid var(--paper); border-radius: 999px; padding: 12px 36px; }
+.outro .o-slogan { font-size: 64px; font-weight: 900; color: var(--paper); line-height: 1.25; }
+.outro .o-tags { font-size: 32px; font-weight: 700; color: var(--brand-tint); margin-top: 40px; }
+.outro .o-academy { font-size: 40px; font-weight: 900; color: var(--paper); margin-top: 56px; }
