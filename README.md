@@ -24,7 +24,8 @@
 
 ## 업데이트
 새 버전이 나오면 **최신 ZIP을 다시 받아 설치 파일을 한 번 더 실행**하면 됩니다 — 설치 스크립트가 기존 버전을 깨끗이 교체합니다.
-- ZIP 다시 받기: 이 페이지 초록색 **`< > Code` → Download ZIP**
+- 새 버전 확인·변경 내용: **[Releases](https://github.com/MadTitch/qt-exam-insta-analysis/releases)** (또는 [CHANGELOG.md](CHANGELOG.md)). 리포 우측 상단 **Watch → Custom → Releases** 를 켜면 새 버전 알림을 받습니다.
+- ZIP 다시 받기: [최신 릴리즈](https://github.com/MadTitch/qt-exam-insta-analysis/releases/latest)에서 Source code(zip), 또는 이 페이지 **`< > Code` → Download ZIP**
 - git이 익숙하면: `git clone` 해두고 `git pull` 후 `bash install.sh` (Windows는 `install.bat`)
 - 진행 중이던 작업물(deck.json·report.json·크롭·결과물)은 사용자 폴더에 있으므로 업데이트해도 사라지지 않습니다.
 
