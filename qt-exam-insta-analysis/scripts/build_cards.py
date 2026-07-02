@@ -316,7 +316,7 @@ def main():
                 page.locator(".canvas").screenshot(path=out)
                 print(f"  sample_{st}.png  (테마 {st}, '{rep.get('type')}' 카드)")
             browser.close()
-            print(f"디자인 샘플 3장 → {out_dir}  (A/B/C 중 선택)")
+            print(f"디자인 샘플 {len(STYLES)}장 → {out_dir}  (테마 {'/'.join(STYLES)} 중 선택)")
             return
 
         style = brand.get("style", "A")

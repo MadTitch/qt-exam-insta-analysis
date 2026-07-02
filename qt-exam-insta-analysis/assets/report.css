@@ -1,0 +1,118 @@
+/* qt-exam-report — A4 상세 분석지 인쇄 스타일
+ * 인쇄 친화: 흰 배경 + 검정 잉크 + 악센트 1색(--accent, build_report.py 가 주입).
+ * 페이지 여백은 playwright pdf margin 으로 처리하므로 @page 는 크기만 둔다.
+ */
+
+:root {
+  --accent:      #1E2A78;   /* 주입됨(기본 네이비) */
+  --accent-soft: #eef0fa;   /* 주입됨(악센트 옅게) */
+  --ink:   #111;
+  --gray:  #666;
+  --line:  #bbb;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: "Noto Sans CJK KR", "Noto Sans KR", sans-serif;
+  font-size: 10pt;
+  line-height: 1.5;
+  color: var(--ink);
+  word-break: keep-all;
+  line-break: strict;
+}
+
+/* ── 리포트 헤더(1쪽 상단) ─────────────────────────────── */
+.report-head {
+  border-bottom: 3px solid var(--accent);
+  padding-bottom: 10px;
+  margin-bottom: 14px;
+}
+.report-head .kicker { font-size: 9pt; font-weight: 700; color: var(--accent); letter-spacing: 2px; }
+.report-head h1 { font-size: 19pt; font-weight: 900; line-height: 1.25; margin: 2px 0 6px; }
+.report-head .meta { font-size: 9pt; color: var(--gray); }
+.report-head .meta b { color: var(--ink); }
+
+/* ── 섹션 제목 ─────────────────────────────────────────── */
+h2.sec {
+  font-size: 12.5pt;
+  font-weight: 900;
+  color: var(--accent);
+  border-left: 5px solid var(--accent);
+  padding-left: 8px;
+  margin: 18px 0 8px;
+  page-break-after: avoid;
+}
+h2.sec .no { color: var(--gray); font-weight: 700; margin-right: 4px; }
+
+/* ── 총평 박스 ─────────────────────────────────────────── */
+.overview {
+  background: var(--accent-soft);
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 10pt;
+  page-break-inside: avoid;
+}
+
+/* ── 공용 표 ───────────────────────────────────────────── */
+table { width: 100%; border-collapse: collapse; font-size: 9pt; }
+th, td { border: 1px solid var(--line); padding: 4px 6px; text-align: left; vertical-align: top; }
+thead th { background: var(--accent); color: #fff; font-weight: 800; }
+thead { display: table-header-group; }         /* 페이지 넘어가면 헤더 반복 */
+tr { page-break-inside: avoid; }
+tbody tr:nth-child(even) td { background: #f7f7f9; }
+td.num, th.num { text-align: center; white-space: nowrap; }
+td.score { text-align: center; font-weight: 800; color: var(--accent); }
+tfoot td { background: var(--accent-soft); font-weight: 800; }
+
+/* 문항 전수 분석표 */
+table.qtable td.note { min-width: 44%; }
+.diff { color: var(--accent); letter-spacing: 1px; white-space: nowrap; }
+
+/* ── 변형 분석 표 ──────────────────────────────────────── */
+table.tf td.sent { font-size: 8.5pt; }
+.tf-before { color: var(--gray); }
+.tf-before .chg { color: #b02020; text-decoration: line-through; font-weight: 800; }
+.tf-after { font-weight: 600; }
+.tf-after .chg {
+  background: var(--accent-soft); color: var(--accent);
+  font-weight: 900; padding: 0 3px; border-radius: 3px; text-decoration: underline;
+}
+.tf-point { font-size: 8.5pt; color: var(--accent); font-weight: 700; }
+
+/* ── 문항별 상세 해설 ─────────────────────────────────── */
+.deep-item {
+  border: 1.5px solid var(--accent);
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  page-break-inside: avoid;
+}
+.deep-item h3 {
+  font-size: 11pt; font-weight: 900; margin-bottom: 6px;
+  padding-bottom: 4px; border-bottom: 1px dashed var(--line);
+}
+.deep-item h3 .badge {
+  display: inline-block; background: var(--accent); color: #fff;
+  font-size: 8.5pt; font-weight: 800; border-radius: 4px;
+  padding: 1px 7px; margin-right: 7px; vertical-align: 1px;
+}
+.deep-item img.crop {
+  display: block; max-width: 100%; max-height: 62mm;
+  border: 1px solid var(--line); border-radius: 4px; margin: 6px auto 8px;
+}
+.deep-item .row { margin: 4px 0; font-size: 9.5pt; }
+.deep-item .lbl {
+  display: inline-block; min-width: 52px;
+  font-weight: 800; color: var(--accent); font-size: 9pt;
+}
+
+/* ── 대비 전략 ─────────────────────────────────────────── */
+.strategy-item { margin-bottom: 8px; page-break-inside: avoid; }
+.strategy-item .st-title { font-weight: 900; font-size: 10.5pt; }
+.strategy-item .st-title::before { content: "▶ "; color: var(--accent); }
+.strategy-item .st-body { font-size: 9.5pt; margin-left: 14px; }
+
+/* 페이지 나눔 유틸 */
+.page-break { page-break-before: always; }
